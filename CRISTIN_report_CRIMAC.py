@@ -58,37 +58,37 @@ for _result in results:
     year = data_json['year_published']
     title = data_json['title'][list(data_json['title'].keys())[0]].strip()
     cat = [data_json['category']['name']['en']][0]
-
-    if cat == 'Academic article':
-        pub = '. '.join([data_json['journal']['name']])
-        Ac_art.append('. '.join([auth, year, title, pub]))
-    elif cat == 'Academic lecture':
-        pub = data_json['event']['name']
-        Ac_lec.append('. '.join([auth, year, title, pub]))
-    elif cat == 'Poster':
-        pub = data_json['event']['name']
-        Poster.append('. '.join([auth, year, title, pub]))        
-    elif cat == 'Masters thesis':
-        auth = ', '.join([_authors[0]['surname'], _authors[0]['first_name']])
-        pub = data_json['publisher']['name']
-        Masters_thesis.append('. '.join([auth, year, title, pub]))
-    elif cat == 'Report':
-        pub = data_json['publisher']['name']
-        Report.append('. '.join([auth, year, title, pub]))
-    elif cat == 'Article in business/trade/industry journal':
-        pub = data_json['journal']['name']
-        Art_business.append('. '.join([auth, year, title, pub]))
-    elif cat == 'Feature article':
-        pub = data_json['journal']['name']
-        Feat_art.append('. '.join([auth, year, title, pub]))
-    elif cat == 'Interview':
-        pub = '' # data_json['journal']['name']
-        Interview.append('. '.join([auth, year, title, pub]))
-    elif cat == 'Reader opinion piece':
-        pub = data_json['journal']['name']
-        Opinion_piece.append('. '.join([auth, year, title, pub]))
-    else:
-        print('Category missing: '+cat)
+    if year == '2023':
+        if cat == 'Academic article':
+            pub = '. '.join([data_json['journal']['name']])
+            Ac_art.append('. '.join([auth, year, title, pub]))
+        elif cat == 'Academic lecture':
+            pub = data_json['event']['name']
+            Ac_lec.append('. '.join([auth, year, title, pub]))
+        elif cat == 'Poster':
+            pub = data_json['event']['name']
+            Poster.append('. '.join([auth, year, title, pub]))        
+        elif cat == 'Masters thesis':
+            auth = ', '.join([_authors[0]['surname'], _authors[0]['first_name']])
+            pub = data_json['publisher']['name']
+            Masters_thesis.append('. '.join([auth, year, title, pub]))
+        elif cat == 'Report':
+            pub = data_json['publisher']['name']
+            Report.append('. '.join([auth, year, title, pub]))
+        elif cat == 'Article in business/trade/industry journal':
+            pub = data_json['journal']['name']
+            Art_business.append('. '.join([auth, year, title, pub]))
+        elif cat == 'Feature article':
+            pub = data_json['journal']['name']
+            Feat_art.append('. '.join([auth, year, title, pub]))
+        elif cat == 'Interview':
+            pub = '' # data_json['journal']['name']
+            Interview.append('. '.join([auth, year, title, pub]))
+        elif cat == 'Reader opinion piece':
+            pub = data_json['journal']['name']
+            Opinion_piece.append('. '.join([auth, year, title, pub]))
+        else:
+            print('Category missing: '+cat)
 
 
 file2 = '/mnt/c/DATAscratch/CRISTIN_CRIMAC_report.txt'
